@@ -1,43 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./index.css"
 import ProductCard from './Components/ProductCard/ProductCard'
 import Message from './Components/Message/Message'
+import Counter from './Components/Counter/Counter'
 
 export default function App() {
+  /* const modalAbiertoEstado = useState(false)
+  const modalAbierto = modalAbiertoEstado[0]
+  const setModalAbierto = modalAbiertoEstado[1] */
+  const [modalAbierto, setModalAbierto] = useState (false)
 
-  let precio = 40000
+  function abrirModal (){
+    setModalAbierto(true)
+  }
+  console.log("[App.jsx] me renderize")
   return (
     <div>
-      <div>
-        El valor del iva de ${precio} ARS es ${precio * 0.21} ARS
+      <button onClick={abrirModal}>Abrir modal</button>
+      {
+        modalAbierto
+        &&
+        <div className='modal-container'>
+        <div className='modal'>
+          <h1>Hola, soy un modal!</h1>
+          <button>Cerrar</button> 
+        </div>
+
       </div>
-      <ProductCard/>
-      <div>
-        <Message
-          fecha={"12:00 PM"}
-          autor={"Yo"}
-          contenido={"Hola, como estas?"}
-          estatus_envio={"visto"}
-          />
-        <Message
-          fecha={"12:03 PM"}
-          autor={"Lu"}
-          contenido={"Hola amor! bien y vos?"}
-          estatus_envio={"enviado"}
-          />
-        <Message
-          fecha={"12:07 PM"}
-          autor={"Yo"}
-          contenido={"Bien bien, te extraño"}
-          estatus_envio={"visto"}
-          />
-        <Message
-          fecha={"12:10 PM"}
-          autor={"Lu"}
-          contenido={"Yo tambien!"}
-          estatus_envio={"enviado"}
-          />
-      </div>
+      }
+      <Counter/>
     </div>
   )
 }
