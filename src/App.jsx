@@ -14,28 +14,28 @@ export default function App() {
       <ProductCard/>
       <div>
         <Message
-          fecha={"12:00"}
+          fecha={"12:00 PM"}
           autor={"Yo"}
           contenido={"Hola, como estas?"}
           estatus_envio={"visto"}
           />
         <Message
-          fecha={"12:03"}
+          fecha={"12:03 PM"}
           autor={"Lu"}
           contenido={"Hola amor! bien y vos?"}
-          estatus_envio={"visto"}
+          estatus_envio={"enviado"}
           />
         <Message
-          fecha={"12:07"}
+          fecha={"12:07 PM"}
           autor={"Yo"}
           contenido={"Bien bien, te extraño"}
           estatus_envio={"visto"}
           />
         <Message
-          fecha={"12:10"}
+          fecha={"12:10 PM"}
           autor={"Lu"}
           contenido={"Yo tambien!"}
-          estatus_envio={"pendiente"}
+          estatus_envio={"enviado"}
           />
       </div>
     </div>
