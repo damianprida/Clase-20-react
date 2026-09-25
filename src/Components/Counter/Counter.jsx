@@ -1,24 +1,42 @@
-import {  useState } from "react";
-
-
+import { useState } from "react";
+import useCounter from "../../hooks/useCounter";
 const Counter = () => {
-    const [count, setCount] = useState(0)
-    const onIncrement = () => {
-        setCount(count + 1)
-    }
-    const onDecrement = () => {
-        setCount(count - 1)
-    }
-return (
-        <div className="counter">
-            <button onClick={onIncrement}>Sumar</button>
+
+    const useCounterResult = useCounter()
+
+
+
+    if (useCounterResult.count === 0) {
+        return (
             <div>
-                <span>{count}</span>
+                <button onClick={useCounterResult.handleIncrement}>Comprar</button>
             </div>
-            <button onClick={onDecrement}>Restar</button>
-            <hr />
+        )
+    }
+
+    return (
+        <div>
+            <h2>Contador: {useCounterResult.count}</h2>
+            <button 
+                onClick={useCounterResult.handleDecrement}
+                disabled={useCounterResult.count <= 0} 
+            >-</button>
+            <button 
+                onClick={useCounterResult.handleIncrement} 
+                disabled={useCounterResult.count >= 10}
+            >
+                +
+            </button>
+            {useCounterResult.count === 10 && <p className="error-text">Has alcanzado el limite</p>}
         </div>
     )
 }
 
 export default Counter
+
+
+/* 
+Crear el hook useCounter que contrendra la logica del componente Counter.jsx
+
+Tener en cuenta que un hook puede devolver tambien funciones
+*/

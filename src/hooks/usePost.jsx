@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-//Esto es un custom hook y solo sera llamado dentro de un compoente
+//Esto es un custom hook y solo sera llamado dentro de un componente
 function usePosts (){
     const [response, setResponse] = useState(null)
     const [error, setError] = useState(null)
