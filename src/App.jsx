@@ -1,8 +1,4 @@
-import React, { useState } from 'react'
-import "./index.css"
-import ProductCard from './Components/ProductCard/ProductCard'
-import Message from './Components/Message/Message'
-import Counter from './Components/Counter/Counter'
+import React, { useState } from 'react'import "./index.css"
 
 export default function App() {
   /* const modalAbiertoEstado = useState(false)
